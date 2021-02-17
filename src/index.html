@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <title>Document</title>
 </head>
 
@@ -17,10 +18,29 @@
             <section class="auth--register"></section>
         </article>
         <article class="dashboard">
-            <!-- All your Nutshell are belong here -->
+            <div class="container mt-3" id="messages-container">
+                <h5>Messages</h5>
+                <div class="row">
+                    <div class="col-2 m-status--span">User Name</div>
+                    <div class="col-3 m-status--span">
+                        <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+                        <label class="btn btn-outline-success" for="success-outlined">Online</label>
+
+                        <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
+                        <label class="btn btn-outline-danger" for="danger-outlined">Offline</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container-fluid" id="m-history--container"></div>
+                </div>
+                <div class="row">
+                    <div class="container-fluid" id="m-send--container"></div>
+                </div>
+            </div>
         </article>
     </article>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="./scripts/main.js" type="module"></script>
 
 </body>
