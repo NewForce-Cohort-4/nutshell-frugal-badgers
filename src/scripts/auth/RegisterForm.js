@@ -47,7 +47,7 @@ eventHub.addEventListener("click", (e) => {
 });
 
 const render = () => {
-  contentTarget.innerHTML += `
+  contentTarget.innerHTML = `
         <section class="register">
             <input id="register--email" type="text" placeholder="Register with email">
 
