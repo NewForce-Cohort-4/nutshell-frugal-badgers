@@ -10,7 +10,7 @@ export const renderMessage = () => {
         console.log(allMessages);
 
         let domString = printMessageForm(allMessages, 0)
-        
+    
         
         messageTarget.innerHTML = domString
         

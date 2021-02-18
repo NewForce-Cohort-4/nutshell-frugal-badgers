@@ -1,14 +1,14 @@
 import { Nutshell } from "../Nutshell.js";
-​
+
 const contentTarget = document.querySelector(".auth--register");
 const eventHub = document.querySelector(".container");
-​
+
 // When the user clicks on the register button
 eventHub.addEventListener("click", (e) => {
   if (e.target.id === "register--button") {
     // Get the email they typed into the form
     const email = document.querySelector("#register--email").value;
-​
+
     if (email !== "") {
       // Check to see if the user exists
       fetch(`http://localhost:8088/users?email=${email}`)
@@ -29,11 +29,11 @@ eventHub.addEventListener("click", (e) => {
               .then((newUser) => {
                 // Once we register them, log them in
                 sessionStorage.setItem("activeUser", newUser.id);
-​
+
                 // clear both forms
                 document.querySelector(".auth--login").innerHTML = "";
                 document.querySelector(".auth--register").innerHTML = "";
-​
+
                 // print the page
                 Nutshell();
               });
@@ -45,17 +45,17 @@ eventHub.addEventListener("click", (e) => {
     }
   }
 });
-​
+
 const render = () => {
   contentTarget.innerHTML = `
         <section class="register">
             <input id="register--email" type="text" placeholder="Register with email">
-​
+
             <button id="register--button">Register</button>
         </section>
     `;
 };
-​
+
 export const RegisterForm = () => {
   render();
 };
