@@ -42,5 +42,7 @@ export const rmArticle = articleID => {
     return fetch(`http://localhost:8088/articles/${articleID}`, {
         method: "DELETE"
     })
+    // Once the old bookmark is deleted on the server, we need to update the one true array for the user
+    .then(mkArticles)
 };
  
