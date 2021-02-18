@@ -1,12 +1,14 @@
 /*
  *  This is a form component that saves information about the article
- *  a user enters into the form and keeps in the user's account.
+ *  a user enters into the form and keeps it in the user's account.
  *  It imports the modules to fetch/save an article to the server
+ *  and to list the articles in the dashboard after a new one is saved.
  * 
  *  Written by Vincent OLeary
  */
 
-import { cpArticles, mkArticles, bmArticle } from "./ArticleProvider.js"
+import { bmArticle } from "./ArticleProvider.js"
+import { ListArticles } from "./ArticleListView.js"
 
 // Define DOM element to put the save form in
 const saveTarget = document.querySelector(".articles-widget__form")
@@ -32,6 +34,7 @@ saveTarget.addEventListener("click", clickEvent => {
         // Save the current userID to link articles to the user's account
         const userID = sessionStorage.getItem('activeUser')
 
+        // Test to make sure the save button is being clicked
         console.log("User #"+userID,"clicked the article save button at",timestamp)
 
         // Create the array for a new article using the entered information
@@ -44,7 +47,9 @@ saveTarget.addEventListener("click", clickEvent => {
             "userID": userID
         }
 
-        // Add the newArticle object to the local server by running a save function from the Provider component
+        // Add the newArticle object to the local server by running a save function from the Provider component and then update article list
         bmArticle(newArticle)
+        .then(ListArticles())
+        .then(BuildSaveForm())
     }
 })
