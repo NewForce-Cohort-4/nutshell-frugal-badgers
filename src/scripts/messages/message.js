@@ -1,7 +1,10 @@
 // Message.js: Function to build the message chat element and print to the DOM.
 // Author: Jon Newton
 
-
+export const printMessageThreads = (messageIndex, userId) => {
+    const userShortName = messageIndex.user.full_name.split(" ")
+    return `<div class="row-col-1 p-1 d-block m-thread-${messageIndex.user.id}--block"><strong>${userShortName[0]}:</strong> ${messageIndex.message}</div>`
+};
 
 export const printMessageForm = (messageIndex, index) => {
     const indexUserReturned = messageIndex[index]
@@ -18,7 +21,7 @@ export const printMessageForm = (messageIndex, index) => {
                         <input type="radio" class="btn-check" name="options-outlined" id="message-online--radio" autocomplete="off">
                         <label class="btn btn-outline-primary" for="message-online--radio">Online</label>
 
-                        <input type="radio" class="btn-check" name="options-outlined" id="message-offline--radio" autocomplete="off" checked>
+                        <input type="radio" class="btn-check" name="options-outlined" id="message-offline--radio" autocomplete="off">
                         <label class="btn btn-outline-danger" for="message-offline--radio">Offline</label>
                     </div>
                 </div>
@@ -35,7 +38,7 @@ export const printMessageForm = (messageIndex, index) => {
                         <div class="row">
                             <div class="input-group col-9">            
                                 <input class="form-control" placeholder="New Message" type="text" name="message-field" id="new-message--input">
-                                <button class="submit btn btn-primary" type="submit" id="message-submit--btn" value="Send">Send</button>
+                                <button class="submit btn btn-primary" id="message-submit--btn" value="Send">Send</button>
                             </div>
                         </div>
                     </div>

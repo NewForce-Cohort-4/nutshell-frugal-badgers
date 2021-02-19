@@ -57,20 +57,25 @@ h1,h2,h3,h4,h5,h6 {
 
 /* Messages History */
 
-.m-sent--block {
+#m-history--span {
+    height: 15rem;
+    overflow-x: hidden;
+}
+
+.m-thread-1--block {
     background-color: var(--cg-blue);
     color: var(--platinum);
     text-align: start;
 }
 
-.m-rec--block {
+.m-thread-2--block {
     background-color: var(--pistachio);
     color: var(--platinum);
     text-align: end;
 }
 
 #messages-chat-offline--span {
-    min-height: 10rem;
+    min-height: 15rem;
     font-size: 150%;
     background-color: var(--queen-blue);
     color: var(--platinum);
