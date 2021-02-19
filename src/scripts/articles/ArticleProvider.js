@@ -33,7 +33,7 @@ export const bmArticle = newArticle => {
         body: JSON.stringify(newArticle)
     })
     // Once the new bookmark is saved to the server, we need to update the one true array for the user
-    .then(mkArticles)
+    .then(mkArticles())
 };
 
 // Define a function to delete saved articles from a user's account
@@ -43,6 +43,5 @@ export const rmArticle = articleID => {
         method: "DELETE"
     })
     // Once the old bookmark is deleted on the server, we need to update the one true array for the user
-    .then(mkArticles)
+    .then(mkArticles())
 };
- 

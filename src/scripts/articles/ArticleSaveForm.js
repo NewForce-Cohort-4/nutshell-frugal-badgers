@@ -13,6 +13,22 @@ import { ListArticles } from "./ArticleListView.js"
 // Define DOM element to put the save form in
 const saveTarget = document.querySelector(".articles-widget__form")
 
+// Build a button that will show the save form when clicked by the user
+export const NewArticleButton = () => { 
+    saveTarget.innerHTML = 
+    `   
+    <button id="new-Article">Add a new article </button>
+    `
+}
+
+// Event listener to only show the save form dialog after a user clicks the "Add" button
+saveTarget.addEventListener("click", clickEvent => {
+    // If the click is on the save button in the article widget, then save that information to the local server
+    if(clickEvent.target.id === "new-Article") {
+        BuildSaveForm()
+    }
+})
+
 // Build the save form that will take a url and info about the article and save to a user's profile with the session ID
 export const BuildSaveForm = () => { 
     saveTarget.innerHTML = 
@@ -50,6 +66,6 @@ saveTarget.addEventListener("click", clickEvent => {
         // Add the newArticle object to the local server by running a save function from the Provider component and then update article list
         bmArticle(newArticle)
         .then(ListArticles())
-        .then(BuildSaveForm())
+        .then(NewArticleButton())
     }
 })
