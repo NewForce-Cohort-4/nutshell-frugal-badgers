@@ -17,6 +17,8 @@ const listTarget = document.querySelector(".articles-widget__list")
 
 // Define a function to list all the articles linked to a specific user's acount
 export const ListArticles = () => {
+    // Print the header of the news widget
+    titleTarget.innerHTML = `<h2>News</h2>`
     // Refresh list of articles and make a copy to display in the dashboard
     mkArticles()
     .then(() => {
@@ -33,9 +35,12 @@ export const ListArticles = () => {
             if (ONEarticle.userID === userID) {
                 //console.log("Found a match!")
                 return `
+                <div class="articles-widget__card">
                 <p>${ONEarticle.title}</p>
                 <p>${ONEarticle.synopsis}</p>
                 <p>${ONEarticle.url}</p>
+                <button id="delete-Article">Delete</button>
+                </div>
                 `
             }
         }).join("")
