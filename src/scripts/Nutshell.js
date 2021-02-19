@@ -18,7 +18,15 @@ export const NutshellSplash = () => {
     
     LogOutButton()
     // Render splash page with navigation bar when first logged in
-    // Will have to add event listeners to each page to run functions previously used in Nutshell
+    // Will have to add event listeners for each page to run functions previously used in Nutshell
     PrintNavbar()
 
+    // Event listeners for navbar functionality
+    document.querySelector("#articles-nav-link").addEventListener("click", () => {
+    // First erase the dashboard
+    
+    // Then add all functions previously in Nutshell() for the article widget to show
+    ListArticles()
+    NewArticleButton()
+    })
 }
