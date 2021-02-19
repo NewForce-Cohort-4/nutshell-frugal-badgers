@@ -25,10 +25,25 @@ export const ListArticles = () => {
     .then(() => {
         const ALLarticles = cpArticles();
         // Test to make sure articles array is created
-        console.log(ALLarticles)
+        //console.log(ALLarticles)
 
-        // Loop over each article and print the details for articles with the user's ID
-        listTarget.innerHTML = ALLarticles.map(ONEarticle => {
+        // Loop over each article and save only current user's articles to an array
+        let activeList = ALLarticles.filter(ONEarticle => {
+            // Save the current user's ID
+            const userID = sessionStorage.getItem('activeUser')
+
+            // Add article to array only if it matches the current user's ID
+            if (ONEarticle.userID === userID) {
+                return ONEarticle
+            }
+        })
+
+        // Sort the user's list of articles for most recent first (descending)
+        let sortedList = activeList.sort((a,b) => {
+            return b.created_at - a.created_at
+        })
+
+        listTarget.innerHTML = sortedList.map(ONEarticle => {
             // Save the current user's ID
             const userID = sessionStorage.getItem('activeUser')
 
