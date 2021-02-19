@@ -23,10 +23,39 @@ export const NutshellSplash = () => {
 
     // Event listeners for navbar functionality
     document.querySelector("#articles-nav-link").addEventListener("click", () => {
-    // First erase the dashboard
+    // First reset the dashboard by clearing the contents of each smallest tag
     
     // Then add all functions previously in Nutshell() for the article widget to show
     ListArticles()
     NewArticleButton()
+    })
+
+    // Event listeners for navbar functionality
+    document.querySelector("#events-nav-link").addEventListener("click", () => {
+    // // First reset the dashboard by clearing the contents of each smallest tag
+    document.querySelector(".articles-widget").innerHTML = `<!-- Articles Widget Title -->
+    <div class="articles-widget__header"></div>
+    <!-- Articles Widget List of Articles -->
+    <div class="articles-widget__list"></div>
+    <!-- Articles Widget Save Function -->
+    <div class="articles-widget__form"></div>`;
+    // Then add all functions previously in Nutshell() for the events widget to show
+    
+    })
+
+    // Event listeners for navbar functionality
+    document.querySelector("#tasks-nav-link").addEventListener("click", () => {
+    // // First reset the dashboard by clearing the contents of each smallest tag
+
+    // Then add all functions previously in Nutshell() for the tasks widget to show
+
+    })
+
+    // Event listeners for navbar functionality
+    document.querySelector("#messages-nav-link").addEventListener("click", () => {
+    // // First reset the dashboard by clearing the contents of each smallest tag
+
+    // Then add all functions previously in Nutshell() for the messages widget to show
+    
     })
 }
