@@ -23,18 +23,19 @@ export const threadTimestamp = () => {
 
 // Declare new variable to store boolean the current state of Offline toggle.
 export const globalOfflineState = (chatState) => {
-    if (!sessionStorage.getItem("chatOffline")) {
-        debugger
+    
+    if (sessionStorage.getItem("chatOffline") === "true" && chatState === undefined) {
         sessionStorage.setItem("chatOffline", true)
-    } else if (sessionStorage.getItem("chatOffline" === undefined && chatState === undefined)){
         debugger
+    } else if (sessionStorage.getItem("chatOffline") === "undefined" && chatState === undefined){
         sessionStorage.setItem("chatOffline", true)
-    } else if (sessionStorage.getItem("chatOffline" !== "false" && chatState === undefined)){
         debugger
-        sessionStorage.setItem("chatOffline", chatState)
-    } else {
-        debugger
+    } else if (sessionStorage.getItem("chatOffline") === "false" && chatState === undefined){
         sessionStorage.setItem("chatOffline", false)
+        debugger
+    } else {
+        sessionStorage.setItem("chatOffline", chatState)
+        debugger
     }
 };
 
@@ -64,14 +65,16 @@ function disableChat() {
     const sendField = document.getElementById("new-message--input")
     const sendBtn = document.getElementById("message-submit--btn")
     const offlineBtn = document.getElementById("message-offline--radio")
-    
+    const onlineBtn = document.getElementById("message-online--radio")
     debugger
     threadContainer.innerHTML = inactiveChatMessage
     sendBtn.setAttribute("disabled", "")
     sendField.setAttribute("disabled", "")
     offlineBtn.setAttribute("checked", "")
+    onlineBtn.removeAttribute("checked", "")
     sendBtn.classList.remove("btn-primary")
     sendBtn.classList.add("btn-dark")
+    globalOfflineState(true)
 };
 
 // Activate Chat field
@@ -79,10 +82,13 @@ const enableChat = () => {
     const sendField = document.getElementById("new-message--input")
     const sendBtn = document.getElementById("message-submit--btn")
     const offlineBtn = document.getElementById("message-offline--radio")
+    const onlineBtn = document.getElementById("message-online--radio")
+    const checkGlobalOffline = sessionStorage.getItem("chatOffline")
 
     sendBtn.removeAttribute("disabled", "")
     sendField.removeAttribute("disabled", "")
     offlineBtn.removeAttribute("checked", "")
+    onlineBtn.setAttribute("checked", "")
     sendBtn.classList.remove("btn-dark")
     sendBtn.classList.add("btn-primary")
     globalOfflineState(false)
@@ -124,13 +130,12 @@ export const buildThreads = (status) => {
 
             // 2. B. If click event id equals message-offline--radio and value equals on
             //      print disableMessage string to DOM and disable buttons with updated classes.
-            debugger
             disableChat()
             debugger
             
         }
     } else if (status === undefined && checkGlobalOffline === "true") {
-        disableChat(inactiveChatMessage)
+        disableChat()
         debugger
     } else if (status === undefined && checkGlobalOffline === "false") {
         recentMessages()
