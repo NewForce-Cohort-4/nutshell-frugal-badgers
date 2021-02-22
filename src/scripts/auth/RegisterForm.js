@@ -1,4 +1,4 @@
-import { Nutshell } from "../Nutshell.js";
+import { NutshellSplash } from "../Nutshell.js";
 
 const contentTarget = document.querySelector(".auth--register");
 const eventHub = document.querySelector(".container");
@@ -34,8 +34,8 @@ eventHub.addEventListener("click", (e) => {
                 document.querySelector(".auth--login").innerHTML = "";
                 document.querySelector(".auth--register").innerHTML = "";
 
-                // print the page
-                Nutshell();
+                // print the page, UPDATED TO SPLASH FUNCTION FOR NAVBAR
+                NutshellSplash();
               });
           } else {
             // If the user does already exist, throw an alert
