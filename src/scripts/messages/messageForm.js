@@ -19,10 +19,7 @@ export const renderMessage = () => {
         
         }).then(getMessages().then(() => {
             let allMessages = useMessages();
-    
-            console.log(allMessages);
-            console.log(allUsers);
-            
+
             let domString = printMessageForm(allMessages, allUsers)
         
             

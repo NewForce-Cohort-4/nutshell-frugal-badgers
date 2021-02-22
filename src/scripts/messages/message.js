@@ -14,13 +14,6 @@ export const printMessageThreads = (messageIndex) => {
     }
 };
 
-// Unfinished function to flag last message sent.
-
-// export const newestUserMessage = (messageIndex) => {
-//     const userShortName = messageIndex.user.full_name.split(" ")
-//     return `<div class="row-col-1 p-1 d-block m-lastThread-${messageIndex.user.id}--block"><strong>${userShortName[0]}:</strong> ${messageIndex.message}</div>`
-// };
-
 export const printMessageForm = (messageIndex , userIndex) => {
     // Declare empty string to hold printed message threads.
     let compiledThreads = ""
@@ -112,3 +105,10 @@ export const printMessageForm = (messageIndex , userIndex) => {
 
     return compiledThreads
 };
+
+// Unfinished function to flag last message sent.
+
+// export const newestUserMessage = (messageIndex) => {
+//     const userShortName = messageIndex.user.full_name.split(" ")
+//     return `<div class="row-col-1 p-1 d-block m-lastThread-${messageIndex.user.id}--block"><strong>${userShortName[0]}:</strong> ${messageIndex.message}</div>`
+// };
