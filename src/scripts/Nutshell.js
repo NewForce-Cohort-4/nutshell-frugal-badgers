@@ -4,6 +4,10 @@ import { ListArticles } from "./articles/ArticleListView.js";
 import { NewArticleButton } from "./articles/ArticleSaveForm.js";
 // Import the functions for the navbar functionality
 import { PrintNavbar, ResetDashboard } from "./nav/NavView.js"
+// Import the functions to list tasks in dashboard
+import { TaskList } from "./tasks/TaskList.js"
+import { TaskForm } from "./tasks/TaskForm.js"
+import { newTaskButton } from "./tasks/TaskForm.js"
 
 export const Nutshell = () => {
     
@@ -32,13 +36,8 @@ export const NutshellSplash = () => {
 
     // Event listeners for navbar functionality
     document.querySelector("#events-nav-link").addEventListener("click", () => {
-    // // First reset the dashboard by clearing the contents of each smallest tag
-    document.querySelector(".articles-widget").innerHTML = `<!-- Articles Widget Title -->
-    <div class="articles-widget__header"></div>
-    <!-- Articles Widget List of Articles -->
-    <div class="articles-widget__list"></div>
-    <!-- Articles Widget Save Function -->
-    <div class="articles-widget__form"></div>`;
+    // First reset the dashboard by clearing the contents of each smallest tag
+    
     // Then add all functions previously in Nutshell() for the events widget to show
     
     })
@@ -48,7 +47,9 @@ export const NutshellSplash = () => {
     // // First reset the dashboard by clearing the contents of each smallest tag
 
     // Then add all functions previously in Nutshell() for the tasks widget to show
-
+    TaskForm()
+    TaskList()
+    newTaskButton()
     })
 
     // Event listeners for navbar functionality
