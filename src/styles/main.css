@@ -80,3 +80,10 @@ h1,h2,h3,h4,h5,h6 {
     background-color: var(--queen-blue);
     color: var(--platinum);
 }
+    
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
