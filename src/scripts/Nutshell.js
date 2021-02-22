@@ -67,13 +67,8 @@ export const NutshellSplash = () => {
     // First reset the dashboard by clearing the contents of each smallest tag
     ResetDashboard()
     // Then add all functions previously in Nutshell() for the messages widget to show
-    
-    })
-
-    // Chat components
     renderMessage()
     globalOfflineState()
-    //Events components
-    newEventButton()
-    myEvents()
+    })
+
 }
