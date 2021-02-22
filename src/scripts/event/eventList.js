@@ -6,10 +6,22 @@ const eventToPrint = document.querySelector(".eventList")
 //function to list the events after they have been added to the API 
 export const eventList = () => {
     getEvents().then(() => {
-        const events = useEvents()
+        const allEvents = useEvents()
         let eventListString = ""
-        for(let i =0; i < events.length; i++){
-            eventListString += individualEvent(events[i])
+        let activeEvents = allEvents.filter(oneEvent => {
+            const userID = sessionStorage.getItem('activeUser')
+
+            if (oneEvent.userID === userID){
+                return oneEvent
+            }
+        })
+        // defining a variable to sort the current user's events by date
+        let sortedEvents = activeEvents.sort((a, b) => {
+            return new Date (a.date) - new Date (b.date)
+        })
+
+        for(let i =0; i < sortedEvents.length; i++){
+            eventListString += individualEvent(sortedEvents[i])
         }
         eventToPrint.innerHTML +=`${eventListString}`
     }
