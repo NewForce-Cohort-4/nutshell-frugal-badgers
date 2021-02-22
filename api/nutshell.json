@@ -144,7 +144,22 @@
       "completed": true,
       "userID": "1",
       "id": 19
+    },
+    {
+      "date": "",
+      "task": "",
+      "completed": true,
+      "userID": "1",
+      "id": 20
     }
   ],
-  "events": []
+  "events": [
+    {
+      "date": "",
+      "event": "",
+      "location": "",
+      "userID": "1",
+      "id": 1
+    }
+  ]
 }
