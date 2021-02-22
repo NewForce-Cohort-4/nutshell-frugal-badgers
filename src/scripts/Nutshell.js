@@ -3,22 +3,22 @@ import {LogOutButton} from "./auth/LogoutButton.js";
 import { ListArticles } from "./articles/ArticleListView.js";
 import { NewArticleButton } from "./articles/ArticleSaveForm.js";
 // Import the functions for the navbar functionality
-import { PrintNavbar } from "./nav/NavView.js"
+import { PrintNavbar, ResetDashboard } from "./nav/NavView.js"
 
 export const Nutshell = () => {
     
     LogOutButton()
     // Render all your UI components here
-    // Article components
-    ListArticles()
-    NewArticleButton()
+
 }
 
+// Function to render the navbar and dynamically clear the page and replace with only the widget selected in the navbar when click
+// Written by Vincent OLeary
 export const NutshellSplash = () => {
     
     LogOutButton()
     // Render splash page with navigation bar when first logged in
-    // Will have to add event listeners for each page to run functions previously used in Nutshell
+    // Uses event listeners for each page to run functions previously used in Nutshell
     PrintNavbar()
 
     // Event listeners for navbar functionality

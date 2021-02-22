@@ -18,3 +18,6 @@ export const PrintNavbar = () => {
     <a id="messages-nav-link" href="#">Messages</a>
     `
 }
+
+// Reset Dashboard by clearing each tag
+export const ResetDashboard = ()
