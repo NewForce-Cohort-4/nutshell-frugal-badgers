@@ -11,6 +11,9 @@ import { TaskForm } from "./tasks/TaskForm.js"
 import { newTaskButton } from "./tasks/TaskForm.js"
 // Import the functions for the navbar functionality
 import { PrintNavbar, ResetDashboard } from "./nav/NavView.js"
+// Import chat functiuons
+import { renderMessage } from "./messages/messageForm.js";
+import { globalOfflineState, scrollChatBottom } from "./messages/threads.js";
 
 export const Nutshell = () => {
     LogOutButton()
@@ -67,4 +70,10 @@ export const NutshellSplash = () => {
     
     })
 
+    // Chat components
+    renderMessage()
+    globalOfflineState()
+    //Events components
+    newEventButton()
+    myEvents()
 }
