@@ -1,4 +1,7 @@
-import {LogOutButton} from "./auth/LogoutButton.js"
+//Import the functions to list all a user's events in the dashboard
+import { myEvents, newEventButton } from "./event/eventForm.js"
+import {} from './event/eventSelect.js'
+import {LogOutButton} from "./auth/LogoutButton.js";
 // Import the functions to list all a user's articles in the dashboard and add a save button for new articles
 import { ListArticles } from "./articles/ArticleListView.js";
 import { NewArticleButton } from "./articles/ArticleSaveForm.js";
@@ -11,7 +14,6 @@ import { renderMessage } from "./messages/messageForm.js";
 import { globalOfflineState, scrollChatBottom } from "./messages/threads.js";
 
 export const Nutshell = () => {
-    
     LogOutButton()
     // Render all your UI components here
     // Article components
@@ -23,5 +25,8 @@ export const Nutshell = () => {
     newTaskButton()
     // Chat components
     renderMessage()
-    globalOfflineState()    // scrollChatBottom()
+    globalOfflineState()
+    //Events components
+    newEventButton()
+    myEvents()
 }

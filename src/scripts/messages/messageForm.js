@@ -8,30 +8,31 @@ import { chatStatusListner, sendMessageListner } from "./eventHub.js";
 
 let messageTarget = document.getElementById("messages-container")
 
-// let offlineState = undefined
-// debugger
 
 export const renderMessage = () => {
     let allUsers = [];
 
     getUsers().then(() => {
+        // Get users from API and store the array returned
         allUsers = useUsers();
         
         }).then(getMessages().then(() => {
+            // Nested API call to collect messages and ensure functions have access to user list.
             let allMessages = useMessages();
 
+            // Printer function is passed the messages and user arrays.
             let domString = printMessageForm(allMessages, allUsers)
         
-            
+            // Apply HTML elements to container element
             messageTarget.innerHTML = domString
     
+            // Envoke function to build chat threads
             buildThreads();
     
+            // Enable event listners for HTML elements once printed.
             chatStatusListner();
-    
             sendMessageListner();
 
-    
         }))
     
 };
