@@ -26,16 +26,16 @@ export const TaskList = () => { // in charge of getting the tasks and printing t
 
 // Event listener to track when tasks are marked completed
 taskContainer.addEventListener("change", (eventObject)=> {
-    //console.log("you clicked me")
-    //console.log(eventObject.target.id)
+    console.log("You checked a task")
+    console.log(eventObject.target.id)
     if (eventObject.target.id.startsWith("completeNote")){
-    const idToMove = eventObject.target.id.split("--")[1]
-    // Call the moveNote function and pass in the appropriate id
-    // Then call TaskList to refresh the list of tasks 
-    moveNote(idToMove)
-    .then(TaskList) // then shows all left over tasks
-    .then(newTaskButton) // then reset the new task button to be clear
-}
+        const idToMove = eventObject.target.id.split("--")[1]
+        // Call the moveNote function and pass in the appropriate id
+        // Then call TaskList to refresh the list of tasks 
+        moveNote(idToMove)
+        .then(TaskList) // then shows all left over tasks
+        .then(newTaskButton) // then reset the new task button to be clear
+    }
 })
 
 // Added by Vincent OLeary - functionality for showing completed tasks

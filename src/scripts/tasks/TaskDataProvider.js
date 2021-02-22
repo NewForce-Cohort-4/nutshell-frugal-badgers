@@ -34,3 +34,15 @@ export const moveNote = taskId => {
     .then(response => response.json())
     .then(data => console.log(data))
 }
+
+// Added functionality to mark a completed task as not completed
+export const uncheckTask = taskId => {
+    return fetch(`http://localhost:8088/tasks/${taskId}`, {
+        method: "PATCH",
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify({
+            completed: false,
+        }),
+    })
+    .then(response => response.json())
+}
