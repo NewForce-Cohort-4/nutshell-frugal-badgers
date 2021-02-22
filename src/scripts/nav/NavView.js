@@ -19,5 +19,18 @@ export const PrintNavbar = () => {
     `
 }
 
-// Reset Dashboard by clearing each tag
-export const ResetDashboard = ()
+// Reset Dashboard by clearing each tag that has widget content
+// querySelectorAll returns a NodeList instead of array, so we need a function to loop over the contents and return an array we can actually  use
+var forEach = function (array, callback, scope) { 
+    for (var i = 0; i < array.length; i++) {
+        callback.call(scope, i , array[i]);
+    }
+}
+
+// Reset function takes the tagNodeList object, runs the forEach function to make an array, and then clears the HTML for each tag it found
+export const ResetDashboard = () => {
+    const tagNodeList = document.querySelectorAll(".dashboard-clear");
+    forEach( tagNodeList, function (index, value) {
+        value.innerHTML = ""
+    })
+}
