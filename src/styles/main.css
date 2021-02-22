@@ -81,13 +81,25 @@ h1,h2,h3,h4,h5,h6 {
     color: var(--platinum);
 }
     
+
+/* Tasks */
 .flex-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .boldEventCard {
     background-color:lightslategray; /* bold event needs its own non-offensive background color  */
 }
+
+/* Nav bar*/
+
+.navBar {
+	list-style-type: none;
+    display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+  }
