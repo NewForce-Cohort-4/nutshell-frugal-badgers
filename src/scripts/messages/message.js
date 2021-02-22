@@ -1,9 +1,17 @@
 // Message.js: Function to build the message chat element and print to the DOM.
 // Author: Jon Newton
 
+// Function to print individual threads to the chat widget.
 export const printMessageThreads = (messageIndex, userId) => {
-    const userShortName = messageIndex.user.full_name.split(" ")
-    return `<div class="row-col-1 p-1 d-block m-thread-${messageIndex.user.id}--block"><strong>${userShortName[0]}:</strong> ${messageIndex.message}</div>`
+    const userShortName = messageIndex.user.full_name
+    const userEmail = messageIndex.user.email
+    // If userShortName is not defined in the API, use current users email when printing threads.
+    if (userShortName === undefined) {
+        return `<div class="row-col-1 p-1 d-block m-thread-${messageIndex.user.id}--block"><strong>${userEmail}:</strong> ${messageIndex.message}</div>`    
+    } else {
+        const userFirstName = userShortName.split(" ")
+        return `<div class="row-col-1 p-1 d-block m-thread-${messageIndex.user.id}--block"><strong>${userFirstName[0]}:</strong> ${messageIndex.message}</div>`
+    }
 };
 
 // Unfinished function to flag last message sent.
