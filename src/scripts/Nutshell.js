@@ -23,6 +23,5 @@ export const Nutshell = () => {
     newTaskButton()
     // Chat components
     renderMessage()
-    globalOfflineState()
-    scrollChatBottom()
+    globalOfflineState()    // scrollChatBottom()
 }
