@@ -1,6 +1,4 @@
-
 //this module will create a new event button and when that button is clicked a form to input information about a new event will populate along with an add event button to push the new event into the events section of the page
-
 
 // selects an ID from the index.html and assigns it
 const contentTarget = document.querySelector(".eventContainer")
