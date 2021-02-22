@@ -1,8 +1,7 @@
 import { getEvents, useEvents } from "./eventDataProvider.js"
 import {individualEvent} from './event.js'
 //this module will create an html representation of the events that will end up in the events section after they have been added by completing the form
-
-let eventToPrint = document.querySelector(".events")
+const eventToPrint = document.querySelector(".eventList")
 
 //function to list the events after they have been added to the API 
 export const eventList = () => {

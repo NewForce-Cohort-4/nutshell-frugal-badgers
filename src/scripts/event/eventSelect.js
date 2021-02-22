@@ -1,6 +1,7 @@
 import {saveEvent} from './eventDataProvider.js'
 import {eventForm} from './eventForm.js'
 import {eventList} from './eventList.js'
+// import {eventList} from './eventList.js'
 //This module will handle all of the click events that happen on the events section of this application
 
 
@@ -34,7 +35,6 @@ contentTarget.addEventListener("click", clickEvent => {
     }   
     //call the save event function to save the event to the API
         saveEvent(eventToSave)
-        console.log(eventToSave)
+        .then(eventList)
     }
 })
-
