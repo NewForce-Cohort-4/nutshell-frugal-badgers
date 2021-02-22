@@ -30,7 +30,7 @@ export const eventList = () => {
         for(let i =1; i < sortedEvents.length; i++){
             eventListString += individualEvent(sortedEvents[i])
         } 
-        eventToPrint.innerHTML +=`${eventListString}`
+        eventToPrint.innerHTML =`${eventListString}`
     }
 
     )
