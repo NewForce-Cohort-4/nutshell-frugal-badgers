@@ -21,41 +21,42 @@ export const threadTimestamp = () => {
     // return Math.floor(Date.now() / 1000)
 };
 
-// Declare new variable to store boolean the current state of Offline toggle.
+// Declare boolean in session storage to store last chat offline toggle state. If page is refreshed, restore offline status based on session storage.
 export const globalOfflineState = (chatState) => {
     
     if (sessionStorage.getItem("chatOffline") === "true" && chatState === undefined) {
         sessionStorage.setItem("chatOffline", true)
-        debugger
+        // debugger
     } else if (sessionStorage.getItem("chatOffline") === "undefined" && chatState === undefined){
         sessionStorage.setItem("chatOffline", true)
-        debugger
+        // debugger
     } else if (sessionStorage.getItem("chatOffline") === "false" && chatState === undefined){
         sessionStorage.setItem("chatOffline", false)
-        debugger
+        // debugger
     } else {
         sessionStorage.setItem("chatOffline", chatState)
-        debugger
+        // debugger
     }
 };
 
-
+// Function to access the API, map messages to an HTML element, and print the 10 most recent messages.
 export const recentMessages = () => {
     // Make global API call and return result to chatStorage
     const threadContainer = document.getElementById("m-history--span")
     getMessages().then(() => {chatStorage = useMessages() 
     
-    // console.log(chatStorage);
+    // Return indivdual threads mapped using html string.
     const mappedMessages = chatStorage.map(singleThread => {
     return printMessageThreads(singleThread)
     })
+    // Parse returned messages and print the last 10 items of the array.
     const top10Messages = mappedMessages.slice(Math.max(mappedMessages.length - 10, 0)).join("")
     threadContainer.innerHTML = top10Messages
 })
 }
 
 
-// Deactivate Chat field
+// Function to deactivate Chat field
 
 function disableChat() {
     const inactiveChatMessage = `
@@ -77,7 +78,7 @@ function disableChat() {
     globalOfflineState(true)
 };
 
-// Activate Chat field
+// Function to activate Chat field
 const enableChat = () => {
     const sendField = document.getElementById("new-message--input")
     const sendBtn = document.getElementById("message-submit--btn")
@@ -97,8 +98,7 @@ const enableChat = () => {
 // Create buildThreads function
 
 export const buildThreads = (status) => {
-    // const indexUserReturned = chatStorage[0]
-    // const userShortName = indexUserReturned.user.full_name.split(" ")
+    // Local document selectors
     const threadContainer = document.getElementById("m-history--span")
     const sendField = document.getElementById("new-message--input")
     const sendBtn = document.getElementById("message-submit--btn")
@@ -117,8 +117,8 @@ export const buildThreads = (status) => {
         debugger
 
         if (status.attributes.id.value === "message-online--radio" && checkGlobalOffline ) {
-            // 2. a. If click event id equals message-online--radio and value equals on
-            //      print activeChat string to DOM and disable buttons with updated classes.
+            // 2. a. If click event id equals message-online--radio and sessionStorage has value,
+            //      envoke enableChat function to display message threads and enable text-field/buttons with updated classes.
      
             recentMessages()
 
@@ -128,19 +128,22 @@ export const buildThreads = (status) => {
             
         } else if (status.attributes.id.value === "message-offline--radio" && checkGlobalOffline) {
 
-            // 2. B. If click event id equals message-offline--radio and value equals on
-            //      print disableMessage string to DOM and disable buttons with updated classes.
+            // 2. B. If click event id equals message-offline--radio and sessionStorage has value,
+            //      envoke disableChat function to toggle mesage threads and disable text-field/buttons with updated classes.
             disableChat()
             debugger
             
         }
     } else if (status === undefined && checkGlobalOffline === "true") {
+        // 3. A. If function is envoked without click event and sessionStorage = true,
+            //      envoke disableChat function to toggle mesage threads and disable text-field/buttons with updated classes.
         disableChat()
         debugger
     } else if (status === undefined && checkGlobalOffline === "false") {
+        // 3. A. Else if function is envoked without click event and sessionStorage = false,
+        // envoke enableChat function to toggle mesage threads and enable text-field/buttons with updated classes.
         recentMessages()
 
-        // threadContainer.innerHTML = activeChat
         enableChat()
         debugger
     }       

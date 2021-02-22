@@ -6,6 +6,13 @@ export const printMessageThreads = (messageIndex, userId) => {
     return `<div class="row-col-1 p-1 d-block m-thread-${messageIndex.user.id}--block"><strong>${userShortName[0]}:</strong> ${messageIndex.message}</div>`
 };
 
+// Unfinished function to flag last message sent.
+
+// export const newestUserMessage = (messageIndex) => {
+//     const userShortName = messageIndex.user.full_name.split(" ")
+//     return `<div class="row-col-1 p-1 d-block m-lastThread-${messageIndex.user.id}--block"><strong>${userShortName[0]}:</strong> ${messageIndex.message}</div>`
+// };
+
 export const printMessageForm = (messageIndex, index) => {
     const indexUserReturned = messageIndex[index]
     const userShortName = indexUserReturned.user.full_name.split(" ")
