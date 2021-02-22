@@ -27,7 +27,7 @@ export const NutshellSplash = () => {
 
     // Event listeners for navbar functionality
     document.querySelector("#articles-nav-link").addEventListener("click", () => {
-    console.log("You clicked the article button")
+    //console.log("You clicked the article button")
     // First reset the dashboard by clearing the contents of each smallest tag
     ResetDashboard()
     // Then add all functions previously in Nutshell() for the article widget to show
@@ -37,16 +37,16 @@ export const NutshellSplash = () => {
 
     // Event listeners for navbar functionality
     document.querySelector("#events-nav-link").addEventListener("click", () => {
-    console.log("You clicked the event button")
+    //console.log("You clicked the event button")
     // First reset the dashboard by clearing the contents of each smallest tag
     ResetDashboard()
     // Then add all functions previously in Nutshell() for the events widget to show
-    
+    ADDDDDDDDDDDDDDDDDDD THE FUNCTIONS FOR EVENTS
     })
 
     // Event listeners for navbar functionality
     document.querySelector("#tasks-nav-link").addEventListener("click", () => {
-    console.log("You clicked the task button")
+    //console.log("You clicked the task button")
     // First reset the dashboard by clearing the contents of each smallest tag
     ResetDashboard()
     // Then add all functions previously in Nutshell() for the tasks widget to show
@@ -57,10 +57,10 @@ export const NutshellSplash = () => {
 
     // Event listeners for navbar functionality
     document.querySelector("#messages-nav-link").addEventListener("click", () => {
-    console.log("You clicked the message button")
+    //console.log("You clicked the message button")
     // First reset the dashboard by clearing the contents of each smallest tag
     ResetDashboard()
     // Then add all functions previously in Nutshell() for the messages widget to show
-    
+    ADDDDDDDDDDDDDDDDDDDD THE FUNCTIONS FOR CHAT
     })
 }
