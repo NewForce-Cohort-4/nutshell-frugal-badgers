@@ -1,4 +1,4 @@
-import { buildThreads , threadTimestamp } from "./threads.js";
+import { buildThreads , threadTimestamp, recentMessages, clearChat } from "./threads.js";
 import { sendMessage } from "./messageProvider.js";
 
 let onlineStatus = "";
@@ -40,7 +40,9 @@ export const sendMessageListner = () => {
             "created_at": threadTimestamp(),
             "userId": Number(sessionStorage.getItem("activeUser"))
         }
-        sendMessage(newMessageObject);
-        debugger
+        sendMessage(newMessageObject).then(() => {
+            recentMessages();
+            clearChat();
+        })
     })
 };

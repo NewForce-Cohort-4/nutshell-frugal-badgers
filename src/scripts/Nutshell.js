@@ -8,7 +8,7 @@ import { TaskForm } from "./tasks/TaskForm.js"
 import { newTaskButton } from "./tasks/TaskForm.js"
 // Import chat functiuons
 import { renderMessage } from "./messages/messageForm.js";
-import { globalOfflineState } from "./messages/threads.js";
+import { globalOfflineState, scrollChatBottom } from "./messages/threads.js";
 
 export const Nutshell = () => {
     
@@ -24,4 +24,5 @@ export const Nutshell = () => {
     // Chat components
     renderMessage()
     globalOfflineState()
+    scrollChatBottom()
 }
