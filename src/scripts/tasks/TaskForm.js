@@ -29,7 +29,6 @@ export const TaskForm = () => {
     <input type="date" id = "date"></input>
     <input type="text" placeholder="Enter task here" id="task"> </input>
     <button id="saveTask">Save Task</button>
-    <button id="showDoneTask">Show Completed Tasks</button>
     </fieldset>
     `
 }
@@ -67,12 +66,10 @@ contentTarget.addEventListener("click", clickEvent => {
 // Build the task form with a show Uncompleted Button for when only completed tasks are displayed
 export const CompletedTaskForm = () => {
     contentTarget.innerHTML = `
-    <fieldset>
-    <input type="date" id = "date"></input>
-    <input type="text" placeholder="Enter task here" id="task"> </input>
-    <button id="saveTask">Save Task</button>
+    <div class = "newTask">
+    <button id="newTaskButton">Enter a New Task</button>
     <button id="showDueTask">Show Uncompleted Tasks</button>
-    </fieldset>
+    </div>
     `
 }
 
