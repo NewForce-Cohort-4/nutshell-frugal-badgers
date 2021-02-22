@@ -1,7 +1,7 @@
 // messageForm.js: renderFunction to print complete chat window to DOM and activate event listner.
 // Author: Jon Newton
 
-import { getMessages, useMessages , sendMessage } from "./messageProvider.js";
+import { getMessages, useMessages , getUsers , useUsers } from "./messageProvider.js";
 import { printMessageForm } from "./message.js";
 import { buildThreads } from "./threads.js";
 import { chatStatusListner, sendMessageListner } from "./eventHub.js";
@@ -12,26 +12,29 @@ let messageTarget = document.getElementById("messages-container")
 // debugger
 
 export const renderMessage = () => {
-    
-    getMessages().then(() => {
-        let allMessages = useMessages();
+    let allUsers = [];
 
-        console.log(allMessages);
-
-        let domString = printMessageForm(allMessages, 0)
-    
+    getUsers().then(() => {
+        allUsers = useUsers();
         
-        messageTarget.innerHTML = domString
-
-        buildThreads();
-
-        chatStatusListner();
-
-        sendMessageListner();
-        // for (const message of allMessages) {
+        }).then(getMessages().then(() => {
+            let allMessages = useMessages();
+    
+            console.log(allMessages);
+            console.log(allUsers);
             
-        // }
+            let domString = printMessageForm(allMessages, allUsers)
+        
+            
+            messageTarget.innerHTML = domString
+    
+            buildThreads();
+    
+            chatStatusListner();
+    
+            sendMessageListner();
 
-
-    })
+    
+        }))
+    
 };

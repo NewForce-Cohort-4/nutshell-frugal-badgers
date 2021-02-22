@@ -3,6 +3,7 @@
 // Author: Jon Newton
 
 let pastMessages = [];
+let currentUsers = [];
 
 export const sendMessage = (thread) => {
     return fetch('http://localhost:8088/messages', {
@@ -24,3 +25,12 @@ export const getMessages = () => {
 
 export const useMessages = () => pastMessages.slice();
 
+export const getUsers = () => {
+    return fetch('http://localhost:8088/users')
+    .then(u => u.json())
+    .then(parsedUsers => {
+        currentUsers = parsedUsers;
+    })
+};
+
+export const useUsers = () => currentUsers.slice();
