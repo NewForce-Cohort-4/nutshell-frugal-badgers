@@ -43,7 +43,7 @@ eventHub.addEventListener("click", clickEvent => {
             date: document.querySelector("#date").value,
             task: document.querySelector("#task").value,
             completed: false,
-            userId: sessionStorage.getItem("activeUser")
+            userID: sessionStorage.getItem("activeUser")
         }
         
         saveTask(newTask) //saves the task

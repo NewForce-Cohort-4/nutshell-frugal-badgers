@@ -8,19 +8,29 @@ const eventHub = document.querySelector(".tasklistContainer")
 export const TaskList = () => { // in charge of getting the tasks and printing them
     getTask() //gets task lists from database
     .then(() => {
-        let allTasks = useTask();
-        let taskListHTMLString = "";
+    const allTasksList = useTask();
         
+    // Loop over each task and save only the tasks linked to the userId when logged in
         //filter for completed tasks
-        
-            allTasks = allTasks.filter((currentTask) => {
-                return !currentTask.completed 
+            let allTasks = allTasksList.filter(currentTask => {
+                // Save the current user's ID
+                const userID = sessionStorage.getItem('activeUser')
+
+                // Add task to array only if it matches the current user's ID
+                if (currentTask.userID === userID ) {
+                   // console.log("it worked")
+                    return currentTask.userID 
+                }
             })
 
-        for (let currentTaskInLoop of allTasks){
-            taskListHTMLString += Task(currentTaskInLoop)
-        };
-        taskContainer.innerHTML = `<h2>Task List</h2>${taskListHTMLString}`
+        //filter for completed tasks
+        allTasks = allTasks.filter((currentTask) => {
+            return !currentTask.completed
+        })
+
+        taskContainer.innerHTML = allTasks.map(currentTask => {
+            return Task(currentTask)
+        }).join("")
         
     }) 
 }
