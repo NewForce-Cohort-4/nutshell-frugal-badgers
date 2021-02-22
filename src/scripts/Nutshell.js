@@ -9,6 +9,9 @@ import { NewArticleButton } from "./articles/ArticleSaveForm.js";
 import { TaskList } from "./tasks/TaskList.js"
 import { TaskForm } from "./tasks/TaskForm.js"
 import { newTaskButton } from "./tasks/TaskForm.js"
+// Import chat functiuons
+import { renderMessage } from "./messages/messageForm.js";
+import { globalOfflineState, scrollChatBottom } from "./messages/threads.js";
 
 export const Nutshell = () => {
     LogOutButton()
@@ -20,6 +23,9 @@ export const Nutshell = () => {
     TaskForm()
     TaskList()
     newTaskButton()
+    // Chat components
+    renderMessage()
+    globalOfflineState()
     //Events components
     newEventButton()
     myEvents()
