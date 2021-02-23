@@ -1,11 +1,15 @@
+/* The tasklist.js is used for printing the tasks to the DOM. The eventListener is in charge of removing the task once it's marked complete.
+Author: Sophia Spaulding*/
+
 import { getTask, useTask, moveNote } from './TaskDataProvider.js';
 import { Task } from './Tasks.js';
 
 const taskContainer = document.querySelector(".tasklistContainer");
-
+const titleTarget = document.querySelector(".task_header")
 const eventHub = document.querySelector(".tasklistContainer")
 
 export const TaskList = () => { // in charge of getting the tasks and printing them
+    titleTarget.innerHTML = `<h2>Task List</h2>`
     getTask() //gets task lists from database
     .then(() => {
     const allTasksList = useTask();

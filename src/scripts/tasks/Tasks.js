@@ -1,3 +1,5 @@
+/* This function is to build the task element
+Author: Sophia Spaulding*/
 export const Task = (taskNote) => {
     return `
     <section class = "task-container flex-container"
