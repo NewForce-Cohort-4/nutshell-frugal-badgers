@@ -1,21 +1,26 @@
+/* The tasklist.js is used for printing the tasks to the DOM. The eventListener is in charge of removing the task once it's marked complete.
+Author: Sophia Spaulding*/
 import { getTask, useTask, moveNote, uncheckTask } from './TaskDataProvider.js';
 import { Task, CheckedTask } from './Tasks.js';
 import { newTaskButton, CompletedTaskForm } from './TaskForm.js'
 
 const taskContainer = document.querySelector(".tasklistContainer");
+const titleTarget = document.querySelector(".task_header")
 
 export const TaskList = () => { // in charge of getting the tasks and printing them
+    titleTarget.innerHTML = `<h2>Task List</h2>`
     getTask() //gets task lists from database
     .then(() => {
-        let allTasks = useTask();
-        let taskListHTMLString = "";
-        
-        // Filter tasks for logged in user
-        let userTasks = allTasks.filter(oneEvent => {
+    const allTasks = useTask();
+    let taskListHTMLString = ""
+
+        // Loop over each task and save only the tasks linked to the userId when logged in
+        let userTasks = allTasks.filter(currentTask => {
             const userID = sessionStorage.getItem('activeUser')
             // add event to each users event list by their id
-            if (oneEvent.userId === userID){
-                return oneEvent
+            if (currentTask.userID === userID ) {
+                // console.log("it worked")
+                 return currentTask.userID 
             }
         })
 
@@ -32,7 +37,8 @@ export const TaskList = () => { // in charge of getting the tasks and printing t
         for (let currentTaskInLoop of sortedTasks){
             taskListHTMLString += Task(currentTaskInLoop)
         };
-        taskContainer.innerHTML = `<h2>Task List</h2>${taskListHTMLString}`
+
+        taskContainer.innerHTML = `${taskListHTMLString}`  
     }) 
 }
 
@@ -52,17 +58,18 @@ export const TaskList = () => { // in charge of getting the tasks and printing t
 
 // Added by Vincent OLeary - functionality for showing completed tasks
 export const CompletedTaskList = () => { // in charge of getting the tasks and printing them
+    titleTarget.innerHTML = `<h2>Completed Task List</h2>`
     getTask() //gets task lists from database
     .then(() => {
-        let allTasks = useTask();
-        let taskListHTMLString = "";
+    const allTasks = useTask();
+    let taskListHTMLString = "";
         
         // Filter tasks for logged in user
-        let userTasks = allTasks.filter(oneEvent => {
+        let userTasks = allTasks.filter(currentTask => {
             const userID = sessionStorage.getItem('activeUser')
             // add event to each users event list by their id
-            if (oneEvent.userId === userID){
-                return oneEvent
+            if (currentTask.userID === userID){
+                return currentTask.userID
             }
         })
 
@@ -79,7 +86,8 @@ export const CompletedTaskList = () => { // in charge of getting the tasks and p
         for (let currentTaskInLoop of sortedTasks){
             taskListHTMLString += CheckedTask(currentTaskInLoop)
         };
-        taskContainer.innerHTML = `<h2>Completed Task List</h2>${taskListHTMLString}`
+
+        taskContainer.innerHTML = `${taskListHTMLString}`
         CompletedTaskForm() 
     }) 
 }

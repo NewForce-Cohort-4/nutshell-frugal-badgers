@@ -12,10 +12,12 @@ const navTarget = document.querySelector("nav")
 export const PrintNavbar = () => { 
     navTarget.innerHTML = 
     `   
+    <div class="navBar">
     <a id="articles-nav-link" href="#">Articles</a>
     <a id="events-nav-link" href="#">Events</a>
     <a id="tasks-nav-link" href="#">Tasks</a>
     <a id="messages-nav-link" href="#">Messages</a>
+    </div>
     `
 }
 

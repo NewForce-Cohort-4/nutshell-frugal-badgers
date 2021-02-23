@@ -1,3 +1,6 @@
+// This module is going to be used for storing and fetching the events to and from the API
+// -- Thomas Frazier
+
 let events = [] // empty array to hold the events
 
 export const useEvents = () => events.slice() // function to copy the fetched events array so we don't mess witht the original
