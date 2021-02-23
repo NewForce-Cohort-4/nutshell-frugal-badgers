@@ -9,6 +9,8 @@ const eventToPrint = document.querySelector(".eventList")
 
 //function to list the events after they have been added to the API 
 export const eventList = () => {
+    // Define the title instead of calling the function like before to be more consistent with other components
+    document.querySelector(".eventHeader").innerHTML = `<h2>My Events</h2>`
     getEvents().then(() => {
         //assign variables to access the events from the data provider
         const allEvents = useEvents()

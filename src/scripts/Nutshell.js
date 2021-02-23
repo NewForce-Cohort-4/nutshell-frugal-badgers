@@ -12,7 +12,7 @@ import { PrintNavbar, ResetDashboard } from "./nav/NavView.js"
 import { renderMessage } from "./messages/messageForm.js";
 import { globalOfflineState, scrollChatBottom } from "./messages/threads.js";
 //Import the functions to list all a user's events in the dashboard
-import { myEvents, newEventButton } from "./event/eventForm.js"
+import { newEventButton } from "./event/eventForm.js"
 import {} from './event/eventSelect.js'
 import {eventList} from './event/eventList.js'
 
@@ -48,7 +48,6 @@ export const NutshellSplash = () => {
     ResetDashboard()
     // Then add all functions previously in Nutshell() for the events widget to show
     newEventButton()
-    myEvents()
     eventList()
     })
 

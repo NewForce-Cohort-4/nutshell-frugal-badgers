@@ -15,12 +15,12 @@ const render = () => {
 }
 
 //Function to create the section where the events will be stored
-export const myEvents = () => {
-    eventHub.innerHTML = `
-    <div class="events">
-    <h2>My Events</h2>
-    </div>`
-}
+//export const myEvents = () => {
+//    eventHub.innerHTML = `
+//    <div class="events">
+//    <h2>My Events</h2>
+//    </div>`
+//}
 
 //function that calls that render function above
 export const newEventButton = () => {
