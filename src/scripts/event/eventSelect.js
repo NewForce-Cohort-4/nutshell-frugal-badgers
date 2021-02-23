@@ -1,3 +1,6 @@
+// This module contains event listeners to Print elements to the web page and to save/print the events to and from the API
+// -- Thomas Frazier
+
 import {saveEvent} from './eventDataProvider.js'
 import {eventForm} from './eventForm.js'
 import {eventList} from './eventList.js'

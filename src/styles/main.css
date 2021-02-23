@@ -92,6 +92,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /* Events */
+ /* Events CSS */
 .boldEventCard {
     background-color:lightslategray; /* bold event needs its own non-offensive background color  */
 }
@@ -118,3 +119,7 @@ footer {
     height:60px;   /* Height of the footer */
     background: hsla(208, 25%, 45%, 1);
  }
+.eventList{
+    height: 15rem;
+    overflow-x: hidden
+}
