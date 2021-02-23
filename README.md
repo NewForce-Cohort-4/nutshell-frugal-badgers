@@ -32,32 +32,55 @@
 
 ### Messages
 Messages can be accessed once logged in. This feature will allow a user to broadcast messages to all other users when the chat window is active, as well as view messages sent from other users. This feature works in real-time, so if two users are logged in at the same time they can view each others messages instantly. All messages appear with the most recent shown at the bottom first.
-Screenshot of the messages page showing the default chat window turned off.
-![Chat Page](/images/Chat-widget.png)
-Screenshot of the messages page showing the chat window active and the user is able to send and view messages.
-![Chat Page Active](/images/Active-Chat-function.png)
-Screenshot of the messages page showing the chat window active and the user is able to view messages sent by other logged in users.
-![Two Way Chat](/images/Two-Chats-Active.png)
+
+|![Chat Page](/images/Chat-widget.png)|
+|---|
+| *Screenshot of the messages page showing the default chat window turned off.* |
+
+|![Chat Page Active](/images/Active-Chat-function.png)|
+|---|
+| *Screenshot of the messages page showing the chat window active and the user is able to send and view messages.* |
+
+|![Two Way Chat](/images/Two-Chats-Active.png)|
+|---|
+| *Screenshot of the messages page showing the chat window active and the user is able to view messages sent by other logged in users.* |
+
 ### Articles
 Articles can be accessed once logged in. This feature will allow the user to save articles with their URL, a title, and a summary to their dashboard. After saving an article, the user's articles are shown by most recently saved at the top. Each article has a delete button that will remove that article from the user's account.
-Screenshot of the articles page showing multiple articles sorted by the most recently saved first.
-![Articles Page](/images/Articles-widget.png)
-Screenshot of the articles page showing the "save article" action working.
-![Articles Page Action](/images/Add-Article-function.png)
+
+|![Articles Page](/images/Articles-widget.png)|
+|---|
+| *Screenshot of the articles page showing multiple articles sorted by the most recently saved first.* |
+
+|![Articles Page Action](/images/Add-Article-function.png)|
+|---|
+| *Screenshot of the articles page showing the "save article" action working.* |
+
 ### Tasks
 Tasks can be accessed once logged in. This feature will allow the user to save new tasks with a completion date and name and view their list of tasks to compplete. The user can click the "completed?" button to either mark the specific task as complete or incomplete. Once a task is marked complete, it is removed and displayed under the completed task page instead.
-Screenshot of the default task page showing multiple tasks that are not complete.
-![Task Page](/images/Tasks-widget.png)
-Screenshot of the task page showing the "save task" action working.
-![Task Page Action](/images/Add-Task-function.png)
-Screenshot of the completed task page showing a completed task the user can mark not complete and move back into their ToDos.
-![Completed Task Page](/images/Completed-Task-widget.png)
+
+|![Task Page](/images/Tasks-widget.png)|
+|---|
+| *Screenshot of the default task page showing multiple tasks that are not complete.* |
+
+|![Task Page Action](/images/Add-Task-function.png)|
+|---|
+| *Screenshot of the task page showing the "save task" action working.* |
+
+|![Completed Task Page](/images/Completed-Task-widget.png)|
+|---|
+| *Screenshot of the completed task page showing a completed task the user can mark not complete and move back into their ToDos.* |
+
 ### Events
 Events can be accessed once logged in. This feature will allow the user to save their events by their date, name, and location. Once saved, the user will view it on the dashboard.
-Screenshot of the events page showing multiple events and the first one is emphasized for the user.
-![Events Page](/images/Events-widget.png)
-Screenshot of the events page showing the "save event" action working and the user can scroll their events in the list.
-![Events Page Action](/images/Add-Event-function.png)
+
+|![Events Page](/images/Events-widget.png)|
+|---|
+| *Screenshot of the events page showing multiple events and the first one is emphasized for the user.* |
+
+|![Events Page Action](/images/Add-Event-function.png)|
+|---|
+| *Screenshot of the events page showing the "save event" action working and the user can scroll their events in the list.* |
 
 ## A Note About Authentication
 
