@@ -5,7 +5,7 @@ export const Task = (taskNote) => {
             <p>Task: ${taskNote.task}</p>
             <p>Date: ${taskNote.date}</p>
             <div class = "checkbox"
-            <p><input type="checkbox" id="completeNote--${taskNote.id}"></p>
+            <p><input type="checkbox" class="checkboxflag" id="completeNote--${taskNote.id}"></p>
             </div>
         </div>
     </section>
@@ -19,7 +19,7 @@ export const CheckedTask = (taskNote) => {
             <p>Task: ${taskNote.task}</p>
             <p>Date: ${taskNote.date}</p>
             <div class = "checkbox"
-            <p><input type="checkbox" checked id="completeNote--${taskNote.id}"></p>
+            <p><input type="checkbox" class="checkboxflag" id="completeNote--${taskNote.id}" checked></p>
             </div>
         </div>
     </section>

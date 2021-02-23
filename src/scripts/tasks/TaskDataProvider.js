@@ -32,7 +32,7 @@ export const moveNote = taskId => {
         }),
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    //.then(data => console.log(data))
 }
 
 // Added functionality to mark a completed task as not completed

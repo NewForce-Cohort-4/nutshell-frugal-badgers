@@ -1,4 +1,4 @@
-import { getTask, useTask, moveNote } from './TaskDataProvider.js';
+import { getTask, useTask, moveNote, uncheckTask } from './TaskDataProvider.js';
 import { Task, CheckedTask } from './Tasks.js';
 import { newTaskButton, CompletedTaskForm } from './TaskForm.js'
 
@@ -11,10 +11,9 @@ export const TaskList = () => { // in charge of getting the tasks and printing t
         let taskListHTMLString = "";
         
         //filter for completed tasks
-        
-            allTasks = allTasks.filter((currentTask) => {
-                return !currentTask.completed 
-            })
+        allTasks = allTasks.filter((currentTask) => {
+            return !currentTask.completed 
+        })
 
         for (let currentTaskInLoop of allTasks){
             taskListHTMLString += Task(currentTaskInLoop)
@@ -25,18 +24,18 @@ export const TaskList = () => { // in charge of getting the tasks and printing t
 }
 
 // Event listener to track when tasks are marked completed
-taskContainer.addEventListener("change", (eventObject)=> {
-    console.log("You checked a task")
-    console.log(eventObject.target.id)
-    if (eventObject.target.id.startsWith("completeNote")){
-        const idToMove = eventObject.target.id.split("--")[1]
-        // Call the moveNote function and pass in the appropriate id
-        // Then call TaskList to refresh the list of tasks 
-        moveNote(idToMove)
-        .then(TaskList) // then shows all left over tasks
-        .then(newTaskButton) // then reset the new task button to be clear
-    }
-})
+//taskContainer.addEventListener("change", (eventObject)=> {
+//    console.log("You checked a task")
+//    console.log(eventObject.target.id)
+//    if (eventObject.target.id.startsWith("completeNote")){
+//        const idToMove = eventObject.target.id.split("--")[1]
+//        // Call the moveNote function and pass in the appropriate id
+//        // Then call TaskList to refresh the list of tasks 
+//        moveNote(idToMove)
+//        .then(TaskList) // then shows all left over tasks
+//        .then(newTaskButton) // then reset the new task button to be clear
+//    }
+//})
 
 // Added by Vincent OLeary - functionality for showing completed tasks
 export const CompletedTaskList = () => { // in charge of getting the tasks and printing them
@@ -59,3 +58,25 @@ export const CompletedTaskList = () => { // in charge of getting the tasks and p
         
     }) 
 }
+
+// Run a function on click to see if checkbox is checked or empty
+taskContainer.addEventListener("change", (eventObject)=> {
+    // Show the end state of the checkbox, True = was checked by user, False = was unchecked
+    console.log(eventObject.target.checked)
+    // If the checkbox was checked complete by user, update the database and reload list of ToDos, otherwise do reverse
+    if (eventObject.target.checked === true) {
+        const idToMove = eventObject.target.id.split("--")[1]
+        // Call the moveNote function and pass in the appropriate id
+        // Then call TaskList to refresh the list of tasks 
+        moveNote(idToMove)
+        .then(TaskList) // then shows all left over tasks
+        .then(newTaskButton) // then reset the new task button to be clear
+    } else if (eventObject.target.checked === false) {
+        const idToMove = eventObject.target.id.split("--")[1]
+        // Call the moveNote function and pass in the appropriate id
+        // Then call TaskList to refresh the list of tasks 
+        uncheckTask(idToMove)
+        .then(CompletedTaskList) // then shows updated list of completed tasks
+        .then(newTaskButton) // then reset the new task button to be clear
+    }
+})
