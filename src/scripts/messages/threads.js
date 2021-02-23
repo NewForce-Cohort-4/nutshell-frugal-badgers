@@ -1,7 +1,7 @@
 // Threads.js: Provides function with conditional to detect change from Online/Offline button event listners to print message threads OR Offline message.
 // Author: Jon Newton
 
-import {  } from "./eventHub.js";
+import { chatSync } from "./eventHub.js";
 import { getMessages, useMessages , sendMessage } from "./messageProvider.js";
 import { printMessageThreads } from "./message.js";
 
@@ -32,6 +32,25 @@ export const scrollChatBottom = () => {
 // Function to clear chat field on send
 export const clearChat = () => {
     document.getElementById("new-message--input").value = "";
+};
+
+// Function to use with eventListner to implement real-time chats.
+export const realTimeChat = (event) => {
+    debugger
+    buildThreads();
+    // if (event.oldValue <= event.newValue) {
+    //     debugger
+    //     buildThreads();
+    // }
+};
+
+// Write messageIndex to local storage
+export const updateChatIndex = (x) => {
+    if (x === undefined) {
+        window.localStorage.setItem("messageValue", true)    
+    } else {
+        window.localStorage.setItem("messageValue", x)
+    }
 };
 
 // Declare boolean in session storage to store last chat offline toggle state. If page is refreshed, restore offline status based on session storage.

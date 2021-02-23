@@ -3,8 +3,8 @@
 
 import { getMessages, useMessages , getUsers , useUsers } from "./messageProvider.js";
 import { printMessageForm } from "./message.js";
-import { buildThreads } from "./threads.js";
-import { chatStatusListner, sendMessageListner } from "./eventHub.js";
+import { buildThreads, updateChatIndex } from "./threads.js";
+import { chatStatusListner, sendMessageListner, chatSync } from "./eventHub.js";
 
 let messageTarget = document.getElementById("messages-container")
 
@@ -14,7 +14,7 @@ export const renderMessage = () => {
 
     getUsers().then(() => {
         // Get users from API and store the array returned
-        allUsers = useUsers();
+        allUsers = useUsers()
         
         }).then(getMessages().then(() => {
             // Nested API call to collect messages and ensure functions have access to user list.
@@ -26,13 +26,16 @@ export const renderMessage = () => {
             // Apply HTML elements to container element
             messageTarget.innerHTML = domString
     
-            // Envoke function to build chat threads
+            // Envoke function to build chat threads 
             buildThreads();
     
             // Enable event listners for HTML elements once printed.
             chatStatusListner();
             sendMessageListner();
-
+            // Increase local storage interger and enable storage listner event...
+            // to synchronize recent chats in other windows.
+            updateChatIndex();
+            chatSync();
         }))
     
 };
