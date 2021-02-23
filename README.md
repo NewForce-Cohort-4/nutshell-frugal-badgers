@@ -35,7 +35,7 @@ Implemented chat widget to dynamically print after successful login, that allows
 ### Articles
 With local json server running and VS code hosting, you should be able to log in as any user and see a button to add news articles under the News section of the dashboard. Once clicked, a save form is created to save a title, URL, and summary. After hitting save, you should see all articles that user has saved displayed in the dashboard widget. Articles are shown by most recently saved at the top. Each article has a delete button that will remove that article from the user's account.
 ### Tasks
-
+The task branch is used to save both completed and incomplete tasks. When a user logs in, they are able to see their saved tasks. The user is able to save the expected completion date with each task as well. The user can click the completed? button, to either mark the specific task as complete or incomplete. The specific task will then be listed in the corresponding list.
 ### Events
 Event branch that can be accessed once logged in. This feature will allow you to save events by their date, name, and location. Once you save one you can add it to the list of your events.
 
