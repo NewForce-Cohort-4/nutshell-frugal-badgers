@@ -1,74 +1,43 @@
 # Nutshell: The Information Dashboard
 
-## Setup: Follow these steps exactly
+## _Frugal Badgers Edition_
+
+### Setup
 
 1. Clone this repository
-1. `cd` into the directory it creates
-1. Make a `database.json` file in the `api` directory
-1. Delete the `.ignore` file in the `api` directory
-
-> **Note:** Your `database.json` file is already in the `.gitignore` file for this project, so it will never be added to the repo or pushed to Github.
-
-## Instructions
-
-Nutshell is a new product offering that you have been tasked with building. It's a dashboard for people to use to organize their daily tasks, events, news article, friends, and chat messages.
-
-You will be utilizing all of the skills and concepts that you've learned up to this point in the course.
-
-1. Functions
-1. Databases
-1. Github
-1. Objects
-1. CSS/Flexbox
-1. Array methods
-1. Components
-1. Handling user events
-1. Implementing CRUD operations
-1. Relational data
-1. ERDs
-
-To start you off, here's an example of what the resources in your API should look like once it's populated with some data from your application.
-
-### Users
-
-```json
-{ "id": 1, "email": "me@me.com" }
-```
-
-### Messages
-
-```json
-{ "id": 1, "userId": 1, "message": "What's up?" }
-```
-
-### News
-
+2. `cd` into the new directory
+3. Run the following command: `cd api && touch database.json`
+4. Delete the `.ignore` file in the `api` directory
+5. Open the `database.json` file in the `api` directory and paste the following:
 ```json
 {
-    "id": 1,
-    "userId": 2,
-    "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
-    "title": "Wormholes Allow Information to Escape Black Holes",
-    "synopsis": "Check out this recent discovery about workholes"
+    "users": [
+    ],
+     "messages": [
+    ],
+     "articles": [
+    ],
+    "tasks": [
+    ],
+    "events": [
+    ]
 }
 ```
+6. Navigate from the `api` to the `src` folder with the following `cd src` and then `code .` to launch the program and then click go live to open in the browser
 
-### Friends
 
-```json
-{ "id": 1, "userId": 1, "following": 3 }
-```
+    **Note**: The `database.json` file is present in the project `.gitignore` file. This file is unique to the current instance of nutshell.
 
+## Features
+
+### Messages
+Implemented chat widget to dynamically print after successful login, that allows for an enable/disable (online/offline) states and utilizes sub-function to print message threads chronologically to the DOM, while displaying the newest thread at the bottom.
+### Articles
+With local json server running and VS code hosting, you should be able to log in as any user and see a button to add news articles under the News section of the dashboard. Once clicked, a save form is created to save a title, URL, and summary. After hitting save, you should see all articles that user has saved displayed in the dashboard widget. Articles are shown by most recently saved at the top. Each article has a delete button that will remove that article from the user's account.
 ### Tasks
 
-```json
-{ "id": 1, "userId": 3, "task": "Take out garbage", "complete": false }
-```
-
-## Professional Requirements
-
-1. Each module should have a comment at the top with the following info: author(s) and purpose of module
-1. The README for your project should include instructions on how another person can download and run the application
+### Events
+Event branch that can be accessed once logged in. This feature will allow you to save events by their date, name, and location. Once you save one you can add it to the list of your events.
 
 ## A Note About Authentication
 
