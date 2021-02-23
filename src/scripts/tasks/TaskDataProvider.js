@@ -1,3 +1,6 @@
+/* This function is for fetching, saving, and changing information in the api
+ Author: Sophia Spaulding*/
+
 let tasks = []
 
 export const useTask = () => tasks.slice()

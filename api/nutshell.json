@@ -13,47 +13,20 @@
   "articles": [],
   "tasks": [
     {
-      "date": "2021-02-19",
-      "task": "complete this code",
-      "id": 1,
-      "userId": 1,
-      "completed": true
-    },
-    {
-      "date": "2021-02-16",
-      "task": "",
-      "completed": true,
-      "userId": "2",
-      "id": 2
-    },
-    {
       "date": "",
       "task": "",
       "completed": true,
-      "userId": "2",
-      "id": 3
-    },
-    {
-      "date": "2021-02-03",
-      "task": "",
-      "completed": true,
-      "userId": "2",
-      "id": 4
-    },
-    {
-      "date": "2021-02-24",
-      "task": "",
-      "completed": true,
-      "userId": "2",
-      "id": 5
-    },
-    {
-      "date": "2021-02-25",
-      "task": "",
-      "completed": true,
-      "userId": "2",
-      "id": 6
+      "userID": "1",
+      "id": 1
     }
   ],
-  "events": []
+  "events": [
+    {
+      "date": "",
+      "event": "",
+      "location": "",
+      "userID": "1",
+      "id": 1
+    }
+  ]
 }

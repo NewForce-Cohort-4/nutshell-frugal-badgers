@@ -1,3 +1,8 @@
+/* The render function includes the button to enter a new task. 
+The task form is for the user to save new tasks.
+Author: Sophia Spaulding */
+
+
 import { saveTask } from './TaskDataProvider.js';
 import { TaskList } from './TaskList.js';
 
@@ -43,7 +48,7 @@ eventHub.addEventListener("click", clickEvent => {
             date: document.querySelector("#date").value,
             task: document.querySelector("#task").value,
             completed: false,
-            userId: sessionStorage.getItem("activeUser")
+            userID: sessionStorage.getItem("activeUser")
         }
         
         saveTask(newTask) //saves the task
