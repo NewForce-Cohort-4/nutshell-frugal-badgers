@@ -36,16 +36,18 @@ export const clearChat = () => {
 
 // Function to use with eventListner to implement real-time chats.
 export const realTimeChat = (event) => {
-
-    if (event.oldValue <= event.newValue) {
-        buildThreads();
-    }
+    debugger
+    buildThreads();
+    // if (event.oldValue <= event.newValue) {
+    //     debugger
+    //     buildThreads();
+    // }
 };
 
 // Write messageIndex to local storage
 export const updateChatIndex = (x) => {
-    if (!x) {
-        window.localStorage.setItem("messageValue", 1)    
+    if (x === undefined) {
+        window.localStorage.setItem("messageValue", true)    
     } else {
         window.localStorage.setItem("messageValue", x)
     }

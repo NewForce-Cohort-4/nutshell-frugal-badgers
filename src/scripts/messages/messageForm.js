@@ -32,6 +32,8 @@ export const renderMessage = () => {
             // Enable event listners for HTML elements once printed.
             chatStatusListner();
             sendMessageListner();
+            // Increase local storage interger and enable storage listner event...
+            // to synchronize recent chats in other windows.
             updateChatIndex();
             chatSync();
         }))
