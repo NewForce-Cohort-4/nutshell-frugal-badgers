@@ -34,6 +34,18 @@ export const clearChat = () => {
     document.getElementById("new-message--input").value = "";
 };
 
+// Function to use with eventListner to implement real-time chats.
+export const realTimeChat = (event) => {
+    if (event.oldValue <= event.key) {
+        buildThreads();
+    }
+};
+
+// Write messageIndex to local storage
+export const updateChatIndex = (x) => {
+    window.localStorage.setItem("messageValue", x)
+};
+
 // Declare boolean in session storage to store last chat offline toggle state. If page is refreshed, restore offline status based on session storage.
 export const globalOfflineState = (chatState) => {
     

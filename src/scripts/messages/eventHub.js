@@ -1,4 +1,4 @@
-import { buildThreads , threadTimestamp, recentMessages, clearChat } from "./threads.js";
+import { buildThreads , threadTimestamp, recentMessages, clearChat, updateChatIndex, realTimeChat } from "./threads.js";
 import { sendMessage } from "./messageProvider.js";
 
 let onlineStatus = "";
@@ -31,6 +31,8 @@ export const chatStatusListner = () => {
     })
 };
 
+let chatIndexer = 1
+
 export const sendMessageListner = () => {
     const messageText = document.getElementById("message-submit--btn")
 
@@ -43,6 +45,15 @@ export const sendMessageListner = () => {
         sendMessage(newMessageObject).then(() => {
             recentMessages();
             clearChat();
+        }).then(() => {
+            updateChatIndex(chatIndexer++);
+            chatSync();
         })
+    })
+};
+
+export const chatSync = () => {
+    window.addEventListener("storage", (event) => {
+        realTimeChat(event)
     })
 };

@@ -13,7 +13,7 @@ import { newTaskButton } from "./tasks/TaskForm.js"
 import { PrintNavbar, ResetDashboard } from "./nav/NavView.js"
 // Import chat functiuons
 import { renderMessage } from "./messages/messageForm.js";
-import { globalOfflineState, scrollChatBottom } from "./messages/threads.js";
+import { globalOfflineState } from "./messages/threads.js";
 
 export const Nutshell = () => {
     LogOutButton()

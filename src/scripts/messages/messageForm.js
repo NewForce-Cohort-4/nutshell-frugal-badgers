@@ -14,7 +14,7 @@ export const renderMessage = () => {
 
     getUsers().then(() => {
         // Get users from API and store the array returned
-        allUsers = useUsers();
+        allUsers = useUsers()
         
         }).then(getMessages().then(() => {
             // Nested API call to collect messages and ensure functions have access to user list.

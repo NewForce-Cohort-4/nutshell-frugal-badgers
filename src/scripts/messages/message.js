@@ -29,8 +29,6 @@ export const printMessageForm = (messageIndex , userIndex) => {
     
     // Store user returned by filter in variable.
     const indexUserReturned = matchedUserReturned();
-
-    const displayUserEmail = indexUserReturned.email
     
     // Condition checks for full name in user object, if none exists prints the user's email to the DOM.
     if (indexUserReturned.full_name === undefined) {
@@ -40,7 +38,7 @@ export const printMessageForm = (messageIndex , userIndex) => {
                         <h5 class="text-center mt-4">Messages</h5>
                     </div>
                     <div class="row justify-content-around align-items-center">
-                        <div class="col-3 d-flex justify-content-start m-status--span"><strong>${displayUserEmail}</strong></div>
+                        <div class="col-3 d-flex justify-content-start m-status--span"><strong>${indexUserReturned.email}</strong></div>
                         <div class="col-7 d-flex justify-content-end m-status--span">
                             <input type="radio" class="btn-check" name="options-outlined" id="message-online--radio" autocomplete="off">
                             <label class="btn btn-outline-primary" for="message-online--radio">Online</label>
