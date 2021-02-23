@@ -1,4 +1,5 @@
 //this module will create a new event button and when that button is clicked a form to input information about a new event will populate along with an add event button to push the new event into the events section of the page
+// -- Thomas Frazier
 
 // selects an ID from the index.html and assigns it
 const contentTarget = document.querySelector(".eventContainer")
@@ -13,12 +14,13 @@ const render = () => {
     `
 }
 
-export const myEvents = () => {
-    eventHub.innerHTML = `
-    <div class="events">
-    <h2>My Events</h2>
-    </div>`
-}
+//Function to create the section where the events will be stored
+//export const myEvents = () => {
+//    eventHub.innerHTML = `
+//    <div class="events">
+//    <h2>My Events</h2>
+//    </div>`
+//}
 
 //function that calls that render function above
 export const newEventButton = () => {

@@ -1,3 +1,6 @@
+//The functions on this module represent the different types of cards that will be displayed when a user create's events for themselves
+// -- Thomas Frazier 
+
 //individual representation fo each event
 export const individualEvent = (event) => {
     return `
