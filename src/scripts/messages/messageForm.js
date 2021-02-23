@@ -3,8 +3,8 @@
 
 import { getMessages, useMessages , getUsers , useUsers } from "./messageProvider.js";
 import { printMessageForm } from "./message.js";
-import { buildThreads } from "./threads.js";
-import { chatStatusListner, sendMessageListner } from "./eventHub.js";
+import { buildThreads, updateChatIndex } from "./threads.js";
+import { chatStatusListner, sendMessageListner, chatSync } from "./eventHub.js";
 
 let messageTarget = document.getElementById("messages-container")
 
@@ -26,13 +26,14 @@ export const renderMessage = () => {
             // Apply HTML elements to container element
             messageTarget.innerHTML = domString
     
-            // Envoke function to build chat threads
+            // Envoke function to build chat threads 
             buildThreads();
     
             // Enable event listners for HTML elements once printed.
             chatStatusListner();
             sendMessageListner();
-
+            updateChatIndex();
+            chatSync();
         }))
     
 };

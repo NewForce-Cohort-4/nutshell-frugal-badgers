@@ -31,7 +31,14 @@ export const chatStatusListner = () => {
     })
 };
 
-let chatIndexer = 1
+// Function and variable to store index saved in localStorage and passed to realTimeChat function.
+let chatInt = 1
+
+const chatIndexer = () => {
+    return chatInt++
+};
+
+export let chatIndexId = chatIndexer();
 
 export const sendMessageListner = () => {
     const messageText = document.getElementById("message-submit--btn")
@@ -46,7 +53,8 @@ export const sendMessageListner = () => {
             recentMessages();
             clearChat();
         }).then(() => {
-            updateChatIndex(chatIndexer++);
+            chatIndexer();
+            updateChatIndex(chatInt);
             chatSync();
         })
     })
