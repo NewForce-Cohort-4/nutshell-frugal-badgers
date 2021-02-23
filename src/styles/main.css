@@ -87,7 +87,12 @@ h1,h2,h3,h4,h5,h6 {
     justify-content: space-between;
     align-items: center;
 }
-
+ /* Events CSS */
 .boldEventCard {
     background-color:lightslategray; /* bold event needs its own non-offensive background color  */
+}
+
+.eventList{
+    height: 15rem;
+    overflow-x: hidden
 }

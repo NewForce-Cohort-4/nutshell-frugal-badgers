@@ -1,3 +1,6 @@
+// This module is tasked with creating the event list and setting the conditions that must be met to print them in the correct area of the list
+// -- Thomas Frazier
+
 import { getEvents, useEvents } from "./eventDataProvider.js"
 import {individualEvent, boldEvent} from './event.js'
 
