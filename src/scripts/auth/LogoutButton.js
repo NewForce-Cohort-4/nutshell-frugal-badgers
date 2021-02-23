@@ -1,5 +1,6 @@
 import { LoginForm } from "./LoginForm.js"
 import { RegisterForm } from "./RegisterForm.js"
+import { ResetDashboard } from "../nav/NavView.js"
 
 const eventHub = document.querySelector(".auth--logout")
 const contentTarget = document.querySelector(".auth--logout")
@@ -22,5 +23,8 @@ eventHub.addEventListener("click", (eventObject) => {
         // Reprint the login and register form
         LoginForm()
         RegisterForm()
+        // Clear the dashboard
+        ResetDashboard()
+        document.querySelector("nav").innerHTML = ""
     }
 })
