@@ -10,12 +10,26 @@ export const TaskList = () => { // in charge of getting the tasks and printing t
         let allTasks = useTask();
         let taskListHTMLString = "";
         
-        //filter for completed tasks
-        allTasks = allTasks.filter((currentTask) => {
+        // Filter tasks for logged in user
+        let userTasks = allTasks.filter(oneEvent => {
+            const userID = sessionStorage.getItem('activeUser')
+            // add event to each users event list by their id
+            if (oneEvent.userId === userID){
+                return oneEvent
+            }
+        })
+
+        // Filter out completed tasks by user
+        let dueTasks = userTasks.filter((currentTask) => {
             return !currentTask.completed 
         })
 
-        for (let currentTaskInLoop of allTasks){
+        // Sort tasks by due date
+        let sortedTasks = dueTasks.sort((a, b) => {
+            return new Date (a.date) - new Date (b.date)
+        })
+
+        for (let currentTaskInLoop of sortedTasks){
             taskListHTMLString += Task(currentTaskInLoop)
         };
         taskContainer.innerHTML = `<h2>Task List</h2>${taskListHTMLString}`
