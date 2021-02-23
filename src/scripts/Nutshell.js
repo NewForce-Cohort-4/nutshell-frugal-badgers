@@ -1,6 +1,3 @@
-//Import the functions to list all a user's events in the dashboard
-import { myEvents, newEventButton } from "./event/eventForm.js"
-import {} from './event/eventSelect.js'
 import {LogOutButton} from "./auth/LogoutButton.js";
 // Import the functions to list all a user's articles in the dashboard and add a save button for new articles
 import { ListArticles } from "./articles/ArticleListView.js";
@@ -14,6 +11,10 @@ import { PrintNavbar, ResetDashboard } from "./nav/NavView.js"
 // Import chat functiuons
 import { renderMessage } from "./messages/messageForm.js";
 import { globalOfflineState, scrollChatBottom } from "./messages/threads.js";
+//Import the functions to list all a user's events in the dashboard
+import { newEventButton } from "./event/eventForm.js"
+import {} from './event/eventSelect.js'
+import {eventList} from './event/eventList.js'
 
 export const Nutshell = () => {
     LogOutButton()
@@ -47,7 +48,7 @@ export const NutshellSplash = () => {
     ResetDashboard()
     // Then add all functions previously in Nutshell() for the events widget to show
     newEventButton()
-    myEvents()
+    eventList()
     })
 
     // Event listeners for navbar functionality
